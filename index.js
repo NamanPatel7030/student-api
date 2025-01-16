@@ -20,7 +20,7 @@ app.post("/", (req, res) => {
   students = [...students, { enrollment_no, name, branch, sem, div, roll_no }];
   res.json(students);
 });
-// to update a student
+// to update a studen
 app.put("/:enrollment_no", (req, res) => {
   const enrollment_no = req.params.enrollment_no;
   const { name, branch, sem, div, roll_no } = req.body;
