@@ -20,7 +20,7 @@ app.post("/", (req, res) => {
   students = [...students, { enrollment_no, name, branch, sem, div, roll_no }];
   res.json(students);
 });
-// to update a studen
+// to update a student
 app.put("/:enrollment_no", (req, res) => {
   const enrollment_no = req.params.enrollment_no;
   const { name, branch, sem, div, roll_no } = req.body;
@@ -28,6 +28,15 @@ app.put("/:enrollment_no", (req, res) => {
     student.enrollment_no == enrollment_no
       ? { enrollment_no, name, branch, sem, div, roll_no }
       : student
+  );
+  res.json(students);
+});
+// to delete a student
+app.delete("/:enrollment_no", (req, res) => {
+  const enrollment_no = req.params.enrollment_no;
+
+  students = students.filter(
+    (student) => student.enrollment_no != enrollment_no
   );
   res.json(students);
 });
